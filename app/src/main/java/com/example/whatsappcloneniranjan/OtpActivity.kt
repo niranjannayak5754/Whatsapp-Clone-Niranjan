@@ -146,6 +146,10 @@ class OtpActivity : AppCompatActivity() {
                 if(it.isSuccessful){
                     progressDialog.dismiss()
                     Toast.makeText(this, "Log In Success", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, SignUpActivity::class.java)
+                    intent.putExtra(PHONE_NUMBER, phoneNumber)
+                    startActivity(intent)
+                    finish()
                 }else {
                     notifyUserAndRetry("Phone Number Verification Failed. Try Again !!")
                 }
